@@ -35,36 +35,27 @@ def modu(p,mp,ne):
     return ne  *(0.5*np.cos(2*np.pi*mp*p)+1)
 
 def plotsim(s, x,y,z):
-    mlab.figure(1) #optional
-#%% comoute scalar field
+#%% compute scalar field
     scf = mlab.pipeline.scalar_field(x,y,z,s)
-    #scf.spacing(dx,dy,dz)
-#%% trnsparent volume example
+#%% transparent volume example
     """
     http://docs.enthought.com/mayavi/mayavi/auto/mlab_pipeline_other_functions.html
     can manipulate opacity and combine with mutable slices
     """
-    mlab.figure(1)
-    makevol(scf,1)
-    figlbl(1)
+    #fig1 = mlab.figure()
+    #makevol(scf,fig1)
+    #figlbl(fig1)
 #%% mutable slice
-    mlab.figure(2)
-    makeslice(scf,2)
-#%% transparency and slice (needs more transparency)
-    mlab.figure(3)
-    makevol(scf,3)
-    makeslice(scf,3)
+    fig2=mlab.figure()
+    makeslice(scf,fig2)
+    figlbl(fig2)
+    mlab.show()
 
-
-def makevol(scf,figh=1):
-    """
-    transparent, pretty but hard to quantify
-    """
+def makevol(scf,figh=None):
+    """    transparent, pretty but hard to quantify    """
     mlab.pipeline.volume(scf,figure=figh)
 
-
-
-def makeslice(scf,figh=1):
+def makeslice(scf,figh=None):
     """
      we can put multiple slices in one figure
      each slice can be flipped, twisted, and slid on the fly wuth mouse or touchscreen
@@ -76,17 +67,16 @@ def makeslice(scf,figh=1):
                                      slice_index=10,
                                      )
 
-    mlab.pipeline.image_plane_widget(scf, plane_orientation="z_axes",
+    mlab.pipeline.image_plane_widget(scf, figure=figh,
+                                     plane_orientation="z_axes",
                                      slice_index=50)
 
-def figlbl(figh):
+def figlbl(figh=None):
+    figh.scene.anti_aliasing_frames=0
     mlab.outline(figure=figh) #box around data axes
     mlab.orientation_axes(figure=figh)
-    mlab.axes(figure=figh) #show axes
-    mlab.xlabel("x (km)",figure=figh)
-    mlab.ylabel("y (km)",figure=figh)
-    mlab.zlabel("z (km)",figure=figh)
-    mlab.show()
+    mlab.scalarbar()
+    mlab.axes(figure=figh,xlabel="x (km)", ylabel="y (km)", zlabel="z (km)")
 
 if __name__ == '__main__':
     ne, x,y,z = gsim()
