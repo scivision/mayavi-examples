@@ -35,18 +35,18 @@ def modu(p,mp,ne):
     return ne  *(0.5*np.cos(2*np.pi*mp*p)+1)
 
 def plotsim(s, x,y,z):
-#%% compute scalar field
-    scf = mlab.pipeline.scalar_field(x,y,z,s)
 #%% transparent volume example
     """
     http://docs.enthought.com/mayavi/mayavi/auto/mlab_pipeline_other_functions.html
     can manipulate opacity and combine with mutable slices
     """
-    #fig1 = mlab.figure()
-    #makevol(scf,fig1)
-    #figlbl(fig1)
+    scf = mlab.pipeline.scalar_field(x,y,z,s)
+    fig1 = mlab.gcf()
+    makevol(scf,fig1)
+    figlbl(fig1)
 #%% mutable slice
     fig2=mlab.figure()
+    scf = mlab.pipeline.scalar_field(x,y,z,s)
     makeslice(scf,fig2)
     figlbl(fig2)
     mlab.show()
