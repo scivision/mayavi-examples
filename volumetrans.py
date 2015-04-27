@@ -11,9 +11,9 @@ requires Python 2 due to mayavi and vtk
 """
 
 
-def gsim(z0=200, h0=50, n0=1e12, zlim=(100,500),dz=2.,
-                                 xlim=(-50,50),   dx=1.,
-                                 ylim=(-100,100),  dy=1.,
+def gsim(z0=200, h0=50, n0=1e12, zlim=(100,500), dz=2,
+                                 xlim=(-50,50),  dx=1,
+                                 ylim=(-100,100),dy=1,
                                  xsc=1/100, ysc=1/150):
 
     # keep the axes in x,y,z order instead of z,x,y.
@@ -35,7 +35,7 @@ def modu(p,mp,ne):
     return ne  *(0.5*np.cos(2*np.pi*mp*p)+1)
 
 def plotsim(s, x,y,z):
-    p1090 = np.percentile(s,(10,90)) #for axes limit
+    p1090 = np.percentile(s, (10,90)) #for axes limit
 #%% transparent volume example
     """
     http://docs.enthought.com/mayavi/mayavi/auto/mlab_pipeline_other_functions.html
@@ -55,7 +55,7 @@ def plotsim(s, x,y,z):
 
 def makevol(scf,p1090,figh=None):
     """    transparent, pretty but hard to quantify    """
-    mlab.pipeline.volume(scf,figure=figh,vmin=p1090[0],vmax=p1090[1])
+    mlab.pipeline.volume(scf, figure=figh, vmin=p1090[0], vmax=p1090[1])
 
 def makeslice(scf,figh=None):
     """
