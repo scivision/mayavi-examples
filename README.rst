@@ -1,8 +1,11 @@
-.. image:: mayavi_iono.png
-  :alt: [example ionosphere in Mayavi]
+
 =========================
 mayavi examples in python
 =========================
+
+.. image:: mayavi_iono.png
+  :alt: [example ionosphere in Mayavi]
+  
 3-D and 4-D plotting with Mayavi in Python
 
 Requires Python 2.x due to Mayavi and TVTK
