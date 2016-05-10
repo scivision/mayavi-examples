@@ -1,21 +1,17 @@
-#!/usr/bin/env python2
-from __future__ import division
+#!/usr/bin/env python
 import numpy as np
 from mayavi import mlab #gateway to VTK
 """
 trivial demo of Mayavi VTK visualiztion
 using ionosphere-like space
 Michael Hirsch
-
-prereqs: conda install numpy mayavi
-requires Python 2 due to mayavi and vtk
 """
 
 
 def gsim(z0=200, h0=50, n0=1e12, zlim=(100,500), dz=2,
                                  xlim=(-50,50),  dx=1,
                                  ylim=(-100,100),dy=1,
-                                 xsc=1/100, ysc=1/150):
+                                 xsc=1/100., ysc=1/150.):
 
     # keep the axes in x,y,z order instead of z,x,y.
     # must be mgrid, NOT ogrid

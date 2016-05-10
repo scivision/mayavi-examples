@@ -8,10 +8,8 @@ mayavi examples in python
   
 3-D and 4-D plotting with Mayavi in Python
 
-Requires Python 2.x due to Mayavi and TVTK
-
-Notes:
-------
+Notes
+=====
 If running in Linux using Anaconda, and you get an error like:
 
 TraitError: Cannot set the undefined 'number_of_table_values' attribute of a 'LookupTable' object.
