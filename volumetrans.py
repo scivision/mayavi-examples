@@ -7,7 +7,6 @@ using ionosphere-like space
 Michael Hirsch
 """
 
-
 def gsim(z0=200, h0=50, n0=1e12, zlim=(100,500), dz=2,
                                  xlim=(-50,50),  dx=1,
                                  ylim=(-100,100),dy=1,
@@ -48,7 +47,6 @@ def plotsim(s, x,y,z):
     scf = mlab.pipeline.scalar_field(x,y,z,s)
     makeslice(scf,fig2)
     figlbl(fig2)
-    mlab.show()
 
 def makevol(scf,p1090,figh=None):
     """
@@ -83,3 +81,4 @@ def figlbl(figh=None):
 if __name__ == '__main__':
     ne, x,y,z = gsim()
     plotsim(ne, x,y,z)
+    mlab.show()
