@@ -51,7 +51,10 @@ def plotsim(s, x,y,z):
     mlab.show()
 
 def makevol(scf,p1090,figh=None):
-    """    transparent, pretty but hard to quantify    """
+    """
+    transparent, pretty
+    http://docs.enthought.com/mayavi/mayavi/auto/mlab_pipeline_other_functions.html#volume
+    """
     mlab.pipeline.volume(scf, figure=figh, vmin=p1090[0], vmax=p1090[1])
 
 def makeslice(scf,figh=None):
