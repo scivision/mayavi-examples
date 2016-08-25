@@ -8,15 +8,14 @@ mayavi examples in python
   
 3-D and 4-D plotting with Mayavi in Python
 
-Version 4.4.4 of Mayavi works with Python 2.7 / 3.4 / 3.5::
+Version 4.5 of Mayavi works with Python 2.7 / 3.4 / 3.5 and Jupyter Notebook::
 
     conda install -c menpo mayavi
 
-Version 4.5 of Mayavi is `coming soon with Jupyter support <https://github.com/enthought/mayavi/issues/384>`_
 
 Note 
 =======
-For Mayavi 4.4.4, you may get error::
+For Mayavi 4.5, you may get error::
 
 
 To fix, consider::
