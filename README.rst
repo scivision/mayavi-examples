@@ -17,6 +17,8 @@ Note
 =======
 For Mayavi 4.5, you may get error::
 
+    TypeError: sort() takes at most 2 arguments (3 given)
+
 
 To fix, consider::
 
