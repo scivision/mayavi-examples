@@ -12,6 +12,11 @@ Version 4.5 of Mayavi works with Python 2.7 / 3.4 / 3.5 and Jupyter Notebook::
 
     conda install -c menpo mayavi
 
+Easy to use alternative
+=======================
+`Plotly <https://github.com/scivision/plotly3d-examples-python>`_ can be used totally offline to make 3-D interactive plots.
+Plotly is very easy to install vs. Mayavi.
+
 
 Note 
 =======
