@@ -38,7 +38,7 @@ title('unmodulated 2-D')
 
 %% modulate 2-D
 Mx = 0.5*cos(2*pi*1/75*x) + 1; % you don't want cos^2, but I did it here just to keep M everywhere positive
-Ne2m = bsxfun(@times,Ne2,Mx);
+Ne2m =Ne2.*Mx;
 %plot modulation
 figure(10),clf(10)
 plot(x,Mx)
@@ -66,8 +66,8 @@ My(:,1) = 0.5*cos(2*pi*1/35*y) + 1; % you don't want cos^2, but I did it here ju
 Ne1(1,1,:) = N0*exp(0.5*(1-z1-exp(-z1)));
 Ne3 = repmat(Ne1,[ny nx 1]);
 
-Ne3m = bsxfun(@times,Ne3,Mx);
-Ne3m = bsxfun(@times,Ne3m,My);
+Ne3m = Ne3.*Mx;
+Ne3m = Ne3m.*My;
 
 %plot
 figure(5),clf(5)
