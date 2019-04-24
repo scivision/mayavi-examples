@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/scivision/mayavi-examples-python.svg?branch=master)](https://travis-ci.com/scivision/mayavi-examples-python)
+
 # Mayavi examples in Python
 
 ![example ionosphere in Mayavi](mayavi_iono.png)
@@ -12,6 +14,6 @@ pip install mayavi
 
 ## Easy to use alternative
 
-[Plotly](https://github.com/scivision/plotly3d-examples-python) 
+[Plotly](https://github.com/scivision/plotly3d-examples-python)
 can be used totally offline to make 3-D interactive plots.
 
