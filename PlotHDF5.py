@@ -3,11 +3,10 @@
 Plotting 4-D data set: 3-D spatial + time.
 Each HDF5 file holds one time step (3-D array inside file)
 """
-from sys import stderr
 import h5py
 import numpy as np
 from pathlib import Path
-from scipy.interpolate import interp2d, RectBivariateSpline
+from scipy.interpolate import RectBivariateSpline  # interp2d
 from matplotlib.pyplot import figure, show
 from mayavi import mlab
 
@@ -16,11 +15,11 @@ def loadplot(fn):
     datfn = Path(fn).expanduser()
 
     with h5py.File(datfn, 'r') as f:
-        Ne = np.rot90(f['/den1'][:128, ...]
+        Ne = np.rot90(f['/den1'][:128, ...])
 
     yg = np.linspace(0, 51.2, Ne.shape[2])
     xg = np.linspace(0, 51.2, Ne.shape[1])
-    zg = np.linspace(0, 51.2, Ne.shape[0])
+    # zg = np.linspace(0, 51.2, Ne.shape[0])
 # %%
     FNe = np.fft.fft2(Ne)
     Fmag = np.fft.fftshift(abs(FNe))
