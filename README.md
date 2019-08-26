@@ -8,6 +8,7 @@
 
 [Mayavi](https://pypi.org/project/mayavi/)
 4.6+ works with plain Python as well as Jupyter Notebooks:
+
 ```sh
 pip install mayavi
 ```
