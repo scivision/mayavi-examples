@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/scivision/mayavi-examples-python.svg?branch=master)](https://travis-ci.com/scivision/mayavi-examples-python)
+[![Actions Status](https://github.com/scivision/mayavi-examples-python/workflows/ci/badge.svg)](https://github.com/scivision/mayavi-examples-python/actions)
 
 # Mayavi examples in Python
 
