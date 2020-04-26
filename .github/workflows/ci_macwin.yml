@@ -1,0 +1,33 @@
+name: ci_macwn
+
+on:
+  push:
+    paths:
+      - "**.py"
+      - ".github/workflows/ci_macwin.yml"
+
+jobs:
+
+  windows:
+    # making sure windows wheels are OK
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    # need to watch vtk + mayavi wheels to be sure python version is supported
+
+    - run: pip install -e .
+
+  mac:
+    # making sure MacOS wheels are OK
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v1
+      with:
+        python-version: '3.7'
+    # need to watch vtk + mayavi wheels to be sure python version is supported
+
+    - run: pip install -e .
