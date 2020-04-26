@@ -5,8 +5,10 @@ import os
 
 
 def test_scalar_field():
+    # arbitrary grid
     x, y, z = np.mgrid[-10:10:20j, -10:10:20j, -10:10:20j]  # type: ignore
-    x, y, z = np.mgrid[-10:10:20j, -10:10:20j, -10:10:20j]  # type: ignore
+    
+    # fake data
     s = np.sin(x * y * z) / (x * y * z)
 
     mlab.pipeline.volume(mlab.pipeline.scalar_field(x, y, z, s))
