@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import numpy as np
+import typing as T
 from mayavi import mlab  # gateway to VTK
 
 """
@@ -9,11 +10,23 @@ Michael Hirsch
 """
 
 
-def gsim(z0=200, h0=50, n0=1e12, zlim=(100, 500), dz=2, xlim=(-50, 50), dx=1, ylim=(-100, 100), dy=1, xsc=1 / 100.0, ysc=1 / 150.0):
+def gsim(
+    z0: float = 200,
+    h0: float = 50,
+    n0: float = 1e12,
+    zlim: T.Sequence[float] = (100, 500),
+    dz: float = 2,
+    xlim: T.Sequence[float] = (-50, 50),
+    dx: float = 1,
+    ylim: T.Sequence[float] = (-100, 100),
+    dy: float = 1,
+    xsc: float = 1 / 100.0,
+    ysc: float = 1 / 150.0,
+) -> T.Tuple[np.ndarray, ...]:
 
     # keep the axes in x,y,z order instead of z,x,y.
     # must be mgrid, NOT ogrid
-    x, y, z = np.mgrid[xlim[0]: xlim[1] + dx: dx, ylim[0]: ylim[1] + dy: dy, zlim[0]: zlim[1] + dz: dz]
+    x, y, z = np.mgrid[xlim[0]: xlim[1] + dx: dx, ylim[0]: ylim[1] + dy: dy, zlim[0]: zlim[1] + dz: dz]  # type: ignore
     ne = chapman(z0, h0, n0, z)
     ne = modu(x, xsc, ne)
     ne = modu(y, ysc, ne)
@@ -21,12 +34,12 @@ def gsim(z0=200, h0=50, n0=1e12, zlim=(100, 500), dz=2, xlim=(-50, 50), dx=1, yl
     return ne, x, y, z
 
 
-def chapman(z0, h0, n0, z):
+def chapman(z0: float, h0: float, n0: float, z: float) -> np.ndarray:
     z1 = (z - z0) / h0
     return n0 * np.exp(0.5 * (1 - z1 - np.exp(-z1)))
 
 
-def modu(p, mp, ne):
+def modu(p: float, mp: float, ne: float) -> np.ndarray:
     return ne * (0.5 * np.cos(2 * np.pi * mp * p) + 1)
 
 

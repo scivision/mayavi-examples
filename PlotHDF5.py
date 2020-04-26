@@ -11,7 +11,7 @@ from matplotlib.pyplot import figure, show
 from mayavi import mlab
 
 
-def loadplot(fn):
+def loadplot(fn: Path):
     datfn = Path(fn).expanduser()
 
     with h5py.File(datfn, "r") as f:
