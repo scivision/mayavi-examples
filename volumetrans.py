@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import numpy as np
 import typing as T
-from mayavi import mlab  # gateway to VTK
+
+from mayavi import mlab
 
 """
-trivial demo of Mayavi VTK visualiztion
+trivial demo of Mayavi VTK visualization
 using ionosphere-like space
 Michael Hirsch
 """
@@ -53,8 +54,8 @@ def plotsim(s, x, y, z):
 
     scf = mlab.pipeline.scalar_field(x, y, z, s)
     fig1 = mlab.gcf()
-    makevol(scf, p1090, fig1)
-    figlbl(fig1)
+    hvol = makevol(scf, p1090, fig1)
+    figlbl(fig1, hvol)
     # %% mutable slice
     fig2 = mlab.figure()
     scf = mlab.pipeline.scalar_field(x, y, z, s)
@@ -67,7 +68,7 @@ def makevol(scf, p1090, figh=None):
     transparent, pretty
     http://docs.enthought.com/mayavi/mayavi/auto/mlab_pipeline_other_functions.html#volume
     """
-    mlab.pipeline.volume(scf, figure=figh, vmin=p1090[0], vmax=p1090[1])
+    return mlab.pipeline.volume(scf, figure=figh, vmin=p1090[0], vmax=p1090[1])
 
 
 def makeslice(scf, figh=None):
@@ -81,12 +82,12 @@ def makeslice(scf, figh=None):
     mlab.pipeline.image_plane_widget(scf, figure=figh, plane_orientation="z_axes", slice_index=50)
 
 
-def figlbl(figh=None):
-    figh.scene.anti_aliasing_frames = 0
-    mlab.outline(figure=figh)  # box around data axes
-    mlab.orientation_axes(figure=figh)
-    mlab.scalarbar()
-    mlab.axes(figure=figh, xlabel="x (km)", ylabel="y (km)", zlabel="z (km)")
+def figlbl(fig, obj=None):
+    fig.scene.anti_aliasing_frames = 0
+    mlab.outline(figure=fig)  # box around data axes
+    mlab.orientation_axes(figure=fig)
+    mlab.scalarbar(obj)
+    mlab.axes(figure=fig, xlabel="x (km)", ylabel="y (km)", zlabel="z (km)")
 
 
 if __name__ == "__main__":

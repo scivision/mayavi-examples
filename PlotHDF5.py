@@ -66,8 +66,9 @@ def loadplot(fn: Path):
     ax.autoscale(True, axis="x", tight=True)
 
     fg = mlab.figure()
-    scf = mlab.pipeline.scalar_field(Ne)
-    mlab.pipeline.volume(scf)
+    scf = mlab.pipeline.scalar_field(Ne, figure=fg)
+    vol = mlab.pipeline.volume(scf, figure=fg)
+    mlab.colorbar(vol)
     mlab.show()
 
 
