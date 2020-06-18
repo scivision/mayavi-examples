@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Plotting 4-D data set: 3-D spatial + time.
 Each HDF5 file holds one time step (3-D array inside file)
