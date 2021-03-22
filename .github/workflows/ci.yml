@@ -23,7 +23,7 @@ jobs:
     - run: pip install -e .[tests,lint]
 
     - run: flake8
-    - run: mypy .
+    - run: mypy
 
     - name: Run headless test
       uses: GabrielBB/xvfb-action@v1.0
